@@ -12,12 +12,8 @@ Suite Setup         Setup Test Suite    headless=true
 Suite Teardown      Close Browser
 Test Setup          New Page            https://www.aktia.fi/fi/yritysasiakkaat/viitenumerolaskuri
 Test Teardown       Close Context
-# to run the test use: robot /path/Aktia.robot
 
-*** Variables ***
-#${VALID} =  ""
-#${REF} = ""
-#${user_input}=${EMPTY}
+# to run the test use: robot /path/Aktia.robot
 
 *** Test Cases ***
 1. All result includes "RF" as initial, return same amount as chosen reference amount - RFXX 123
