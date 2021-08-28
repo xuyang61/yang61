@@ -4,6 +4,8 @@ Test Steps: open web browser (Chrome, Safari, Explore)
             Accept all cookies by clicking: "Hyväksy kaikki evästeet"
             choose "Kansainvälinen viitenumero"
             Select a number from reference code list "1" (or 10, 25, 50, 100, 200)
+
+Total test cases are 14 cases, two failed, 12 passed. 00:01:21 used.
             
             
 There are numbers of the finding that I got during the test. I choose to use Browser Screenshot functions to record my findings in robotframework test suites
@@ -17,4 +19,4 @@ Errors:
      Only when alphabet "e" or "E" is bewteen numberic input, no error notification is made. Either in the initial place or the end will trigger error notification.
      This is an error
     
-  2. 
+ 
