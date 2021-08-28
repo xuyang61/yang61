@@ -13,10 +13,7 @@ Test Setup          New Page            https://www.aktia.fi/fi/yritysasiakkaat/
 Test Teardown       Close Context
 # to run the test use: robot /path/Aktia.robot
 
-*** Variables ***
-#${VALID} =  ""
-#${REF} = ""
-#${user_input}=${EMPTY}
+
 
 *** Test Cases ***
 1. All result includes "RF" as initial, return same amount as chosen reference amount - RFXX 123
@@ -61,7 +58,21 @@ Test Teardown       Close Context
     Take screenshot
     Get Element Count               text=/.*RF.*/     ==      10
 
-4. The customer initial should be numeric only - 11e1
+4. The customer initial numbers should not be less than 3 digits - 12
+    click           text = Hyväksy kaikki evästeet
+      # choose international reference function
+    Click           //*[@id="MainContentSection_T17BA5993010_Col00"]/span/form/div/div/div/div[1]/div[1]/div/div/div/div/div[2]/label/span
+    # choose numbers of reference number that to be generated
+    Click           id=rn-referencenumber-amount
+    Click           xpath=//*[@id="MainContentSection_T17BA5993010_Col00"]/span/form/div/div/div/div[1]/div[2]/div/div
+    Select options by       select[id="rn-referencenumber-amount"]  Value       25
+    Click           id=rn-first-referencenumber
+    Type text       id=rn-first-referencenumber     1234567890123456789
+    Click           xpath=//*[@id="MainContentSection_T17BA5993010_Col00"]/span/form/div/div/div/div[3]/div[2]/button
+    Take screenshot
+    Get Element Count       text=/.Kenttä tulee olla vähintään 3 merkkiä./     ==      1
+
+5. The customer initial should be numeric only - 11e1
     click           text = Hyväksy kaikki evästeet
     Click           xpath=//*[@id="MainContentSection_T17BA5993010_Col00"]/span/form/div/div/div/div[1]/div[1]/div/div/div/div/div[2]/label/span
     # choose numbers of reference number that to be generated
@@ -74,7 +85,7 @@ Test Teardown       Close Context
     Take screenshot
     Get Element Count      text=/.Kenttä on pakollinen./     ==      1
 
-5. The customer initial should be numeric only - 11E1
+6. The customer initial should be numeric only - 11E1
     click           text = Hyväksy kaikki evästeet
     Click           xpath=//*[@id="MainContentSection_T17BA5993010_Col00"]/span/form/div/div/div/div[1]/div[1]/div/div/div/div/div[2]/label/span
     # choose numbers of reference number that to be generated
@@ -87,7 +98,7 @@ Test Teardown       Close Context
     Take screenshot
     Get Element Count      text=/.Kenttä on pakollinen./     ==      1
 
-6. The customer initial should be numeric only - 111e
+7. The customer initial should be numeric only - 111e
     click           text = Hyväksy kaikki evästeet
     Click           xpath=//*[@id="MainContentSection_T17BA5993010_Col00"]/span/form/div/div/div/div[1]/div[1]/div/div/div/div/div[2]/label/span
     # choose numbers of reference number that to be generated
@@ -100,7 +111,7 @@ Test Teardown       Close Context
     Take screenshot
     Get Element Count      text=/.Kenttä on pakollinen./     ==      1
 
-7.The customer initial should be numeric only - e111
+8.The customer initial should be numeric only - e111
     click           text = Hyväksy kaikki evästeet
     Click           xpath=//*[@id="MainContentSection_T17BA5993010_Col00"]/span/form/div/div/div/div[1]/div[1]/div/div/div/div/div[2]/label/span
     # choose numbers of reference number that to be generated
@@ -113,7 +124,7 @@ Test Teardown       Close Context
     Take screenshot
     Get Element Count      text=/.Kenttä on pakollinen./     ==      1
 
-8. The customer initial should be numeric only - 111E
+9. The customer initial should be numeric only - 111E
     click           text = Hyväksy kaikki evästeet
     Click           xpath=//*[@id="MainContentSection_T17BA5993010_Col00"]/span/form/div/div/div/div[1]/div[1]/div/div/div/div/div[2]/label/span
     # choose numbers of reference number that to be generated
@@ -126,7 +137,7 @@ Test Teardown       Close Context
     Take screenshot
     Get Element Count   text=/.Kenttä on pakollinen./     ==      1
 
-9. The customer initial should be numeric only - E111
+10. The customer initial should be numeric only - E111
     click           text = Hyväksy kaikki evästeet
     Click           xpath=//*[@id="MainContentSection_T17BA5993010_Col00"]/span/form/div/div/div/div[1]/div[1]/div/div/div/div/div[2]/label/span
     # choose numbers of reference number that to be generated
@@ -139,7 +150,7 @@ Test Teardown       Close Context
     Take screenshot
     Get Element Count   text=/.Kenttä on pakollinen./     ==      1
 
-10. Special charactors are ignored by system and only numbers are taken into use - 11!"#€%&&/()=?*;:1
+11. Special charactors are ignored by system and only numbers are taken into use - 11!"#€%&&/()=?*;:1
     click           text = Hyväksy kaikki evästeet
     Click           xpath=//*[@id="MainContentSection_T17BA5993010_Col00"]/span/form/div/div/div/div[1]/div[1]/div/div/div/div/div[2]/label/span
     # choose numbers of reference number that to be generated
@@ -152,7 +163,7 @@ Test Teardown       Close Context
     Take screenshot
     Get Element Count               text=/.*RF.*/     ==      1
 
-11. Alphabet is not allowed to be input - abcdefghijklmn
+12. Alphabet is not allowed to be input - abcdefghijklmn
     click           text = Hyväksy kaikki evästeet
     Click           xpath=//*[@id="MainContentSection_T17BA5993010_Col00"]/span/form/div/div/div/div[1]/div[1]/div/div/div/div/div[2]/label/span
     # choose numbers of reference number that to be generated
@@ -165,7 +176,7 @@ Test Teardown       Close Context
     Take screenshot
     Get Element Count   text=/.Kenttä on pakollinen./     ==        1
 
-12. Alphabet is not allowed to be input initial value - opqrstuvwlyz
+13. Alphabet is not allowed to be input initial value - opqrstuvwlyz
     click           text = Hyväksy kaikki evästeet
     Click           xpath=//*[@id="MainContentSection_T17BA5993010_Col00"]/span/form/div/div/div/div[1]/div[1]/div/div/div/div/div[2]/label/span
     # choose numbers of reference number that to be generated
@@ -179,7 +190,7 @@ Test Teardown       Close Context
     Get Element Count   text=/.Kenttä on pakollinen./     ==        1
 
 
- 13. Check the Value of the First result is According to Coverting Rules
+ 14. Check the Value of the First result is According to Coverting Rules
     click           text = Hyväksy kaikki evästeet
      # choose international reference function
     Click           xpath=//*[@id="MainContentSection_T17BA5993010_Col00"]/span/form/div/div/div/div[1]/div[1]/div/div/div/div/div[2]/label/span
