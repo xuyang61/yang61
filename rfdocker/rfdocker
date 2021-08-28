@@ -24,6 +24,6 @@ docker build $BUILD_ARGS --tag "$IMAGE_NAME:$BUILD_NAME" "$BUILD_DIR"
 docker run --rm \
   --user robot --cap-drop ALL \
   -it $RUN_ARGS \
-  -v "$this_path/atest":/home/robot/atest \
+  -v "$this_path/RF_test":/home/robot/RF_test \
   -v "$this_path/results":/home/robot/results \
   "$IMAGE_NAME:$BUILD_NAME" "${@:-atest}"
