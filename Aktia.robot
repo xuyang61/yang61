@@ -1,6 +1,7 @@
 # Test suite is to test the International invoicing reference code generator (Kansainvälinen viitenumero)
 # system on Akia banking page
-# Test suites ultilize external library Browser, Collections.
+# Test suites ultilize external library Browser, python library check_RF_number.py. 
+# Self created library check_RF_number.py must be downloaded
 # Tests include input value check, output value check, format check and print format check
 
 
