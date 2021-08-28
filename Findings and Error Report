@@ -1,9 +1,20 @@
-There are numbers of the finding that I got during the test. I choose to use Browser Screenshot functions to record my findings
+Test Environment: https://www.aktia.fi/fi/yritysasiakkaat/viitenumerolaskuri
+Test Steps: open web browser (Chrome, Safari, Explore)
+            open Test page. https://www.aktia.fi/fi/yritysasiakkaat/viitenumerolaskuri
+            Accept all cookies by clicking: "Hyväksy kaikki evästeet"
+            choose "Kansainvälinen viitenumero"
+            Select a number from reference code list "1" (or 10, 25, 50, 100, 200)
+            
+            
+There are numbers of the finding that I got during the test. I choose to use Browser Screenshot functions to record my findings in robotframework test suites
 
 Errors:
-  1. Customer initialed number field should not allow anything other than numbers as input. Test case 4 and 5 failed as system took the input but ignore it. 
+  1. Customer initialed number field should not allow anything other than numbers as input. Test case 4 and 5 failed as system took the apthabet "E" and "e" without throw out 
+  error notification to remind customer that a wrong input had been made. 
         - 1e2
         - 1E11
-     so Capital E or small letter e in between numbers will not trigger the error notification to users "Kenttä on pakollinen."
+     Exceptions found during alphabet input test cases. Capital E or small letter e in between numbers will not trigger the error notification to users "Kenttä on pakollinen."
+     Only when alphabet "e" or "E" is bewteen numberic input, no error notification is made. Either in the initial place or the end will trigger error notification.
      This is an error
     
+  2. 
