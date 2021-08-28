@@ -1,0 +1,9 @@
+There are numbers of the finding that I got during the test. I choose to use Browser Screenshot functions to record my findings
+
+Errors:
+  1. Customer initialed number field should not allow anything other than numbers as input. Test case 4 and 5 failed as system took the input but ignore it. 
+        - 1e2
+        - 1E11
+     so Capital E or small letter e in between numbers will not trigger the error notification to users "Kenttä on pakollinen."
+     This is an error
+    
